@@ -13,12 +13,16 @@ import java.util.stream.Collectors;
 @Service
 public class ProductService {
 
+    private ProductRepository productRepository;
+
     @Autowired
-    private ProductRepository repository;
+    public ProductService(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
 
     @Transactional(readOnly = true)
     public List<ProductDTO> findAll() {
-        List<Product> list = repository.findAllByOrderByNameAsc();
+        List<Product> list = productRepository.findAllByOrderByNameAsc();
 
         return list.stream().map(x -> new ProductDTO(x)).collect(Collectors.toList());
     }
