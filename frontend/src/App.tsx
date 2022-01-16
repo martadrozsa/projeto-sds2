@@ -1,13 +1,11 @@
-import Home from 'Home';
+import PageRoutes from 'PageRoutes';
 import './App.css'
-import Navbar from './Navbar';
 
 
 function App() {
   return (
     <>
-      <Navbar />
-      <Home />
+      <PageRoutes />
     </>
   );
 }
